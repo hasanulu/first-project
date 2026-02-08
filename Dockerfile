@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 5000
 
 # 7. Uygulamayı başlatan komut
-CMD ["python", "app.py"]asd
+CMD ["python", "app.py"]
