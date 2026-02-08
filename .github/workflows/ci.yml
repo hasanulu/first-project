@@ -1,0 +1,17 @@
+name: Docker Build Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kodu Check-out Et
+        uses: actions/checkout@v3
+
+      - name: Docker İmajını Build Et
+        run: docker build -t test-image .
