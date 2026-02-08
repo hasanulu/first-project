@@ -22,5 +22,5 @@ jobs:
         with:
           context: .
           push: true
-          # Kendi kullanıcı adınla değiştir!
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/fisrt-project:latest
+          # Burayı kesinlikle 'first-project' yapıyoruz
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/first-project:latest
