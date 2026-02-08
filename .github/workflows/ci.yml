@@ -23,4 +23,4 @@ jobs:
           context: .
           push: true
           # Kendi kullanıcı adınla değiştir!
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/devops-merhaba:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/fisrt-project:latest
