@@ -1,9 +1,19 @@
 from flask import Flask
+import redis
+import os
+
 app = Flask(__name__)
 
-@app.route('/')
-def hello_world():
-    return '<h1>Merhaba DevOps Dünyasi!</h1><p>NE MUTLU TÜRKÜM DİYENE!</p>'
+# Redis bağlantısı (Konteyner ismiyle bağlanıyoruz!)
+cache = redis.Redis(host='redis', port=6379)
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+def get_hit_count():
+    return cache.incr('hits')
+
+@app.route('/')
+def hello():
+    count = get_hit_count()
+    return f'<h1>Merhaba! Bu sayfa {count} kez görüntülendi.</h1>'
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
